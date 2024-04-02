@@ -18,7 +18,9 @@ const result = ref(0);
 
 const sendPlus = async() => {
   const response = await fetch(`http://localhost:7777/plus?num1=${num1.value}&num2=${num2.value}`);
+  // const response = await fetch(`http://localhost:5173/api/plus?num1=${num1.value}&num2=${num2.value}`);  // Front에서 CORS 처리
   const data = await response.json();
+  console.table(data);
   result.value = data.sum;
 }
 
